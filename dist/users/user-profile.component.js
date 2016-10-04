@@ -9,29 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.users = [
-            { id: 25, name: 'Claire', username: 'claireGlove' },
-            { id: 26, name: 'Joel', username: 'JoelKla' },
-            { id: 27, name: 'Josh', username: 'Joshua' }
-        ];
+var user_1 = require('../shared/models/user');
+var UserProfileComponent = (function () {
+    function UserProfileComponent() {
     }
-    AppComponent.prototype.selectUser = function (user) {
-        this.activeUser = user;
-    };
-    AppComponent.prototype.onUserCreated = function (event) {
-        this.users.push(event.user);
-    };
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', user_1.User)
+    ], UserProfileComponent.prototype, "user", void 0);
+    UserProfileComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html',
-            styleUrls: ['./app/app.component.css']
+            selector: 'user-profile',
+            template: "\n\t\t<div class=\"jumbotron\" *ngIf=\"user\">\n\t\t\t<h2><strong>{{ user.username }}</strong><small>({{ user.name }})</small></h2>\n\t\t\t<p>User Info</p>\n\n\t\t\t<input class=\"form-control\" [(ngModel)]=\"user.username\"/>\n\t\t</div>\n\t"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], UserProfileComponent);
+    return UserProfileComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.UserProfileComponent = UserProfileComponent;
+//# sourceMappingURL=user-profile.component.js.map
